@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.chdm.ogo_test.activities.ResultActivity">
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:onClick="buttonMenuClick"
+        android:text="В меню"
+        tools:layout_editor_absoluteX="160dp"
+        tools:layout_editor_absoluteY="4dp"
+        android:layout_marginBottom="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/button3"
+        android:layout_alignStart="@+id/button3"
+        style="@style/our_buttons"
+        android:theme="@style/our_buttons" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:onClick="buttonStatClick"
+        android:text="В статистику"
+        tools:layout_editor_absoluteX="170dp"
+        tools:layout_editor_absoluteY="446dp"
+        android:layout_above="@+id/button2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="22dp"
+        style="@style/our_buttons"
+        android:theme="@style/our_buttons" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/button3"
+        android:layout_alignEnd="@+id/button3"
+        android:layout_alignLeft="@+id/button3"
+        android:layout_alignRight="@+id/button3"
+        android:layout_alignStart="@+id/button3"
+        android:layout_marginBottom="73dp"
+        android:onClick="buttonTestClick"
+        android:text="Повтор теста"
+        style="@style/our_buttons"
+        android:theme="@style/our_buttons" />
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_above="@+id/button5"
+        style="@style/our_text">
+        <TableRow>
+            <TextView
+                style="@style/our_text"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:id="@+id/empty_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/text_tontent"
+                android:gravity="center"
+                style="@style/our_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Время"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <TextView
+                android:id="@+id/text_mistakes"
+                style="@style/our_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Ошибки"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                style="@style/our_text"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:id="@+id/first_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=" Этап №1:"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <TextView
+                style="@style/our_text"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:id="@+id/first_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2222"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <TextView
+                style="@style/our_text"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:id="@+id/first_mistakes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2222"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                style="@style/our_text"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:id="@+id/second_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=" Этап №2:"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <TextView
+                style="@style/our_text"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:id="@+id/second_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3333"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <TextView
+                style="@style/our_text"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:id="@+id/second_mistakes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3333"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                style="@style/our_text"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:id="@+id/summary_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=" Итого:"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <TextView
+                style="@style/our_text"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:id="@+id/summary_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4444"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <TextView
+                style="@style/our_text"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:id="@+id/summary_mistakes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4444"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                style="@style/our_text"
+                android:layout_weight="1"
+                android:id="@+id/text_coef"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Ваше внимение:"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <TextView
+                style="@style/our_text"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:id="@+id/empty_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <TextView
+                style="@style/our_text"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:id="@+id/num_coef"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4444"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                style="@style/our_text"
+                android:layout_weight="1"
+                android:id="@+id/text_mark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Ваша оценка:"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <TextView
+                style="@style/our_text"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:id="@+id/empty_field2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <TextView
+                style="@style/our_text"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:id="@+id/num_mark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4444"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </TableRow>
+
+    </TableLayout>
+
+</RelativeLayout>

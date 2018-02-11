@@ -1,0 +1,120 @@
+<resources>
+    <string name="app_name">OGO_Test</string>
+    <string name="button_menu">В меню</string>
+    <string name="button_stat">В статистику</string>
+    <string name="help_menu">Справка</string>
+    <string name="about_menu">О программе</string>
+    <string name="errors_menu">Сумма ошибок</string>
+    <string name="times_menu">Общее время</string>
+    <string name="rating_menu">Итоговая оценка</string>
+    <string name="help_text_old">
+        Тест Горбова (правила)
+Вам будут поочередно предложены две таблицы (первый этап и второй этап), которые включают в себя 24 чёрных и 25 красных ячейки с числами, которые расположены в таблице в случайном порядке.
+	В таблице №1 вам потребуется для прохождения первого этапа выбрать чёрные числа в возрастающей последовательности (от 1 до 24), а затем красные числа в убывающей последовательности (от 25 до 1).
+	В таблице №2 вам потребуется для прохождения второго этапа поочередно выбирать красные числа в убывающем порядке, а чёрные числа - в возрастающем.
+Пример: красное число 25, чёрное число 1, красное 24, чёрное 2 и так далее. Выбор осуществляется путём клика по соответствующей ячейке таблицы.
+	Оповещение об ошибочном ответе будет текстовым – следующее требуемое число (квадрат/ячейка) не изменится, и количество ошибок возрастёт на один.
+Оповещение о верном ответе будет текстовым – следующее требуемое число (квадрат/ячейка) изменится, и количество ошибок не изменится.
+    </string>
+    <string name="about_text_old">
+        Данная программа – тест Горбова, направленный на определение характеристик внимания.
+Программа предоставляет возможность узнать свои характеристики внимания, сохранить результат и посмотреть статистику результатов.
+    </string>
+    <string name="about_text">
+        <![CDATA[
+            <html>
+                <head></head>
+                <body style="text-align:justify;" bgcolor="c8a2c8" text="aa55bb">
+                    <b>
+                    Данная программа – тест Горбова, направленный на определение характеристик внимания.<br><br>
+Программа предоставляет возможность узнать свои характеристики внимания, сохранить результат и посмотреть статистику результатов.
+                    </b>
+                </body>
+            </html>
+        ]]>
+    </string>
+    <string name="help_text">
+        <![CDATA[
+            <html>
+                <head></head>
+                <body style="text-align:justify;" bgcolor="c8a2c8" text="aa55bb">
+                    <b>
+                            Тест Горбова (правила)<br><br>
+Вам будут поочередно предложены две таблицы (первый этап и второй этап), которые включают в себя 24 чёрных и 25 красных ячейки с числами, которые расположены в таблице в случайном порядке.<br><br>
+	В таблице №1 вам потребуется для прохождения первого этапа выбрать чёрные числа в возрастающей последовательности (от 1 до 24), а затем красные числа в убывающей последовательности (от 25 до 1).<br>
+	В таблице №2 вам потребуется для прохождения второго этапа поочередно выбирать красные числа в убывающем порядке, а чёрные числа - в возрастающем.<br><br>
+Пример: красное число 25, чёрное число 1, красное 24, чёрное 2 и так далее. Выбор осуществляется путём клика по соответствующей ячейке таблицы.<br><br>
+	Оповещение об ошибочном ответе будет текстовым – следующее требуемое число (квадрат/ячейка) не изменится, и количество ошибок возрастёт на один.<br><br>
+Оповещение о верном ответе будет текстовым – следующее требуемое число (квадрат/ячейка) изменится, и количество ошибок не изменится.<br>
+                    </b>
+                </body>
+            </html>
+        ]]>
+    </string>
+    <string name="query_globalStat_errors">
+        select b.mak, (errors1 + errors2) as tmp
+        from pmib3515.ratings a
+        inner join
+        (
+            select mak, min(errors1 + errors2) as m from pmib3515.ratings
+            group by mak
+        ) b
+        on b.m = errors1 + errors2 and b.mak = a.mak
+        group by b.mak, tmp
+        order by tmp, min(data)
+        limit 10
+    </string>
+    <string name="query_globalStat_time">
+        select b.mak, m as tmp
+        from pmib3515.ratings a
+        inner join
+        (
+            select distinct mak, min(time1 + time2) as m from pmib3515.ratings
+            group by mak
+        ) b
+        on b.m = time1 + time2 and b.mak = a.mak
+        group by b.mak, tmp
+        order by tmp, min(data)
+        limit 10
+    </string>
+    <string name="query_globalStat_mark">
+        select b.mak, m as tmp
+        from pmib3515.ratings a
+        inner join
+        (
+            select mak, min(mark) as m from pmib3515.ratings
+            group by mak
+        ) b
+        on b.m = mark and b.mak = a.mak
+        group by b.mak, tmp
+        order by tmp, min(data)
+        limit 10
+    </string>
+    <string name="query_localStat_errors">
+        select distinct mak, (errors1 + errors2) as tmp
+        from pmib3515.ratings
+        where mak = @
+        order by (errors1 + errors2)
+        limit 10
+    </string>
+    <string name="query_localStat_time">
+        select distinct mak, (time1 + time2) as tmp
+        from pmib3515.ratings
+        where mak = @
+        order by (time1 + time2)
+        limit 10
+    </string>
+    <string name="query_localStat_mark">
+        select distinct mak, mark as tmp
+        from pmib3515.ratings
+        where mak = @
+        order by mark
+        limit 10
+    </string>
+    <string name="global_stat">
+        Глобальная статистика
+    </string>
+    <string name="local_stat">
+        Своя статистика
+    </string>
+</resources>
